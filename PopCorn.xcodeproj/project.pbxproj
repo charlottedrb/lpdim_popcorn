@@ -12,6 +12,7 @@
 		A021C2F6265FA0AB00ED90DF /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = A021C2F5265FA0AB00ED90DF /* Categories.swift */; };
 		A021C302265FA43A00ED90DF /* ApiConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A021C301265FA43A00ED90DF /* ApiConnection.swift */; };
 		A09776982666301400990CA2 /* Videos.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09776972666301400990CA2 /* Videos.swift */; };
+		A09776A52666737E00990CA2 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = A09776A42666737E00990CA2 /* .gitignore */; };
 		A0AA822A2636D69300968A52 /* Movies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AA82292636D69300968A52 /* Movies.swift */; };
 		A0AA82422636E3C500968A52 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AA82402636E3C400968A52 /* MovieDetailViewController.swift */; };
 		A0AA82432636E3C500968A52 /* MovieDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0AA82412636E3C400968A52 /* MovieDetailViewController.xib */; };
@@ -57,6 +58,7 @@
 		A021C2F5265FA0AB00ED90DF /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 		A021C301265FA43A00ED90DF /* ApiConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConnection.swift; sourceTree = "<group>"; };
 		A09776972666301400990CA2 /* Videos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Videos.swift; sourceTree = "<group>"; };
+		A09776A42666737E00990CA2 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		A0AA82292636D69300968A52 /* Movies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movies.swift; sourceTree = "<group>"; };
 		A0AA82402636E3C400968A52 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 		A0AA82412636E3C400968A52 /* MovieDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieDetailViewController.xib; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 		A0CEBCBB2625765F00C79384 = {
 			isa = PBXGroup;
 			children = (
+				A09776A42666737E00990CA2 /* .gitignore */,
 				A0CEBCC62625765F00C79384 /* PopCorn */,
 				A0CEBCDD2625766500C79384 /* PopCornTests */,
 				A0CEBCE82625766500C79384 /* PopCornUITests */,
@@ -362,6 +365,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A09776A52666737E00990CA2 /* .gitignore in Resources */,
 				A0AA824A2636EEEE00968A52 /* MoviesViewController.xib in Resources */,
 				A0AA82432636E3C500968A52 /* MovieDetailViewController.xib in Resources */,
 				A0AA82572636EF5600968A52 /* MovieCell.xib in Resources */,
