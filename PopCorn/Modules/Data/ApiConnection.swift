@@ -14,6 +14,7 @@ class ApiConnection {
     public func getCategories(completion: @escaping (_ categories: Categories) -> () ) {
         let urlCategoriesString: String = "https://api.themoviedb.org/3/genre/movie/list?api_key=\(key)"
         
+        // Check that URL conversion doesn't return nil
         guard let urlCategories = URL(string: urlCategoriesString) else {
             return
         }
@@ -51,7 +52,7 @@ class ApiConnection {
                 return
             }
             
-            // Init JSON Decode object and decode json data into Category object
+            // Init JSON Decode object and decode json data into Movies object
             do {
                 
                 let movies: Movies = try JSONDecoder().decode(Movies.self, from: data)
@@ -107,7 +108,7 @@ class ApiConnection {
                 return
             }
             
-            // Init JSON Decode object and decode json data into Movie object
+            // Init JSON Decode object and decode json data into Videos object
             
             do {
                 let videos: Videos = try JSONDecoder().decode(Videos.self, from: data)
@@ -122,4 +123,59 @@ class ApiConnection {
         }).resume()
     }
 
+    public func getTopMovies(completion: @escaping (_ movies: TopMovies) -> ()) {
+        let urlTopMoviesString: String = "https://api.themoviedb.org/3/movie/top_rated?api_key=\(key)"
+        
+        guard let urlTopMovies = URL(string: urlTopMoviesString) else {
+            return
+        }
+        
+        URLSession.shared.dataTask(with: urlTopMovies, completionHandler: {
+            data, response, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            
+            // Init JSON Decode object and decode json data into TopMovies object
+            
+            do {
+                let topMovies: TopMovies = try JSONDecoder().decode(TopMovies.self, from: data)
+                // Place it in main thread - Force call in main thread
+                DispatchQueue.main.async{
+                    //print(topMovies)
+                    completion(topMovies)
+                }
+            } catch {
+                print("Failed to decode with error : \(error)")
+            }
+        }).resume()
+    }
+    
+    public func getTopActors(completion: @escaping(_ movies: TopActors) -> ()) {
+        let urlTopActorsString: String = "https://api.themoviedb.org/3/person/popular?api_key=\(key)"
+        
+        guard let urlTopActors = URL(string: urlTopActorsString) else {
+            return
+        }
+        
+        URLSession.shared.dataTask(with: urlTopActors, completionHandler: {
+            data, response, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            
+            // Init JSON Decode object and decode json data into TopActors object
+            
+            do {
+                let topActors: TopActors = try JSONDecoder().decode(TopActors.self, from: data)
+                // Place it in main thread - Force call in main thread
+                DispatchQueue.main.async{
+                    print(topActors)
+                    completion(topActors)
+                }
+            } catch {
+                print("Failed to decode with error : \(error)")
+            }
+        }).resume()
+    }
 }

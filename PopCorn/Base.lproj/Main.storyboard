@@ -25,10 +25,94 @@
             </objects>
             <point key="canvasLocation" x="-1359" y="-73"/>
         </scene>
+        <!--Top Movies-->
+        <scene sceneID="3R1-fX-1dY">
+            <objects>
+                <tableViewController id="rWS-9c-Qiu" userLabel="Top Movies" customClass="TopMoviesTableViewController" customModule="PopCorn" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="mQ9-JH-MAi">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Top Movies" id="VZq-M5-HGM"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yZy-QB-3b5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-352" y="660"/>
+        </scene>
+        <!--Top Actors-->
+        <scene sceneID="zW2-9i-80x">
+            <objects>
+                <collectionViewController id="XgK-xs-oZz" customClass="ActorsViewController" customModule="PopCorn" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="v9l-lt-PSj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="I6T-hY-Bwc">
+                            <size key="itemSize" width="128" height="128"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Qws-cC-wTg">
+                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ggH-hP-qoK">
+                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </collectionViewCellContentView>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="XgK-xs-oZz" id="9UX-lX-a9c"/>
+                            <outlet property="delegate" destination="XgK-xs-oZz" id="thb-kV-cIc"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="Top Actors" id="L3E-Qt-lTb"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5mS-Yn-EQi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="690" y="660"/>
+        </scene>
+        <!--Top Movies-->
+        <scene sceneID="lHg-xT-3oS">
+            <objects>
+                <navigationController storyboardIdentifier="topMoviesNavigation" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xAJ-qS-z88" customClass="NavigationViewController" customModule="PopCorn" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Top Movies" image="sparkles" catalog="system" id="wIQ-qZ-dS7"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JSp-W1-0Ag">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="rWS-9c-Qiu" kind="relationship" relationship="rootViewController" id="4ZY-IN-6Wa"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="26a-3k-hT4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-352" y="-74"/>
+        </scene>
+        <!--Top Actors-->
+        <scene sceneID="H8Q-Te-hXm">
+            <objects>
+                <navigationController id="GGp-ke-wp1" customClass="NavigationViewController" customModule="PopCorn" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Top Actors" image="person.3.fill" catalog="system" id="R5T-Yb-0dr"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lZQ-1D-lNa">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="XgK-xs-oZz" kind="relationship" relationship="rootViewController" id="7cc-Km-FBl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KpA-TK-Myc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="691" y="-74"/>
+        </scene>
         <!--Categories-->
         <scene sceneID="dH2-HP-yQR">
             <objects>
-                <viewController id="lbt-gF-CXy" userLabel="Categories" customClass="CategoriesViewController" customModule="PopCorn" sceneMemberID="viewController">
+                <viewController id="lbt-gF-CXy" userLabel="Categories" customClass="CategoriesViewController" customModule="PopCorn" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="6Qt-fl-ynp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -56,38 +140,6 @@
             </objects>
             <point key="canvasLocation" x="-1359" y="660"/>
         </scene>
-        <!--Movies-->
-        <scene sceneID="9gB-ND-WUb">
-            <objects>
-                <viewController id="uqv-5Y-wi9" customClass="MoviesViewController" customModule="PopCorn" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="4Lg-UJ-bGg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Movies" id="uoi-q9-NTu"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="v8q-dd-AzT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-478" y="660"/>
-        </scene>
-        <!--Movies-->
-        <scene sceneID="Ac0-7w-6KE">
-            <objects>
-                <navigationController storyboardIdentifier="moviesNavigation" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cgD-WL-pMX" userLabel="Movies" customClass="NavigationViewController" customModule="PopCorn" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Top 10" image="sparkles" catalog="system" id="so6-jU-Ve6"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ds8-K9-xMi">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="uqv-5Y-wi9" kind="relationship" relationship="rootViewController" id="XOz-kP-J7p"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="amQ-LK-YzT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-477" y="-74"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="cuD-zd-EJH">
             <objects>
@@ -100,16 +152,18 @@
                     </tabBar>
                     <connections>
                         <segue destination="c61-72-IvY" kind="relationship" relationship="viewControllers" id="7aX-Yk-bSX"/>
-                        <segue destination="cgD-WL-pMX" kind="relationship" relationship="viewControllers" id="u3t-h6-6WI"/>
+                        <segue destination="xAJ-qS-z88" kind="relationship" relationship="viewControllers" id="9Xl-cm-Tdg"/>
+                        <segue destination="GGp-ke-wp1" kind="relationship" relationship="viewControllers" id="FUg-fL-V39"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xCk-Tl-BQn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-904" y="-906"/>
+            <point key="canvasLocation" x="-352" y="-910"/>
         </scene>
     </scenes>
     <resources>
         <image name="list.star" catalog="system" width="128" height="94"/>
+        <image name="person.3.fill" catalog="system" width="128" height="61"/>
         <image name="sparkles" catalog="system" width="112" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

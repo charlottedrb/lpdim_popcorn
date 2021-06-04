@@ -35,7 +35,7 @@ class MoviesViewController: UITableViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "MovieCell", bundle: nil), forCellReuseIdentifier: MovieCell.reuseId)
-        
+        	
         tableView.rowHeight = 80;
     }
 
@@ -62,8 +62,8 @@ class MoviesViewController: UITableViewController {
         cell.subtitleLabel.text = movie.originalTitle
         cell.dateLabel.text = movie.releaseDate
         
-        if let posterPath = movie.posterPath, let path = URL(string: "https://image.tmdb.org/t/p/w500\(posterPath)") {
-            cell.poster.downloaded(from: path)
+        if let posterPath = movie.posterPath, let path = URL(string: "https://image.tmdb.org/t/p/w500\(posterPath)"), let poster = cell.poster {
+            poster.downloaded(from: path)
         } else {
             print("No images found.")
         }
@@ -83,6 +83,8 @@ class MoviesViewController: UITableViewController {
 }
 
 // MARK: -UIImageView Extension
+
+// Extend UIImageView class for image download
 extension UIImageView {
     func downloaded(from url: URL, contentMode mode: UIView.ContentMode = .scaleAspectFit) {
         URLSession.shared.dataTask(with: url) { data, response, error in

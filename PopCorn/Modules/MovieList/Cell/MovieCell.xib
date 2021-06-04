@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -22,8 +23,9 @@
                             <stackView opaque="NO" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ocd-qp-eX7" userLabel="Image">
                                 <rect key="frame" x="0.0" y="0.0" width="106.5" height="70"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="qcU-hE-rts">
-                                        <rect key="frame" x="0.0" y="0.0" width="106.5" height="70"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="qcU-hE-rts">
+                                        <rect key="frame" x="0.0" y="0.5" width="106.5" height="69"/>
+                                        <color key="tintColor" systemColor="opaqueSeparatorColor"/>
                                     </imageView>
                                 </subviews>
                                 <constraints>
@@ -90,6 +92,9 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="Image" width="1080" height="720"/>
+        <image name="camera.circle" catalog="system" width="128" height="121"/>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

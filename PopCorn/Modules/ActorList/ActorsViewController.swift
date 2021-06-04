@@ -1,13 +1,13 @@
 //
-//  CategoriesViewController.swift
+//  ActorsViewController.swift
 //  PopCorn
 //
-//  Created by Charlotte Der Baghdassarian on 27/04/2021.
+//  Created by Charlotte Der Baghdassarian on 04/06/2021.
 //
 
 import UIKit
 
-private let reuseIdentifier = CategoryCell.reuseId
+private let reuseIdentifier = ActorCell().reuseId
 
 private let sectionInsets = UIEdgeInsets(
   top: 50.0,
@@ -15,21 +15,17 @@ private let sectionInsets = UIEdgeInsets(
   bottom: 50.0,
   right: 5.0)
 
-class CategoriesViewController: UICollectionViewController {
+class ActorsViewController: UICollectionViewController {
     
     private let itemsPerRow: CGFloat = 2
     
-    //init
-    private var categories: Categories = Categories(genres: [])
+    private var topActors: TopActors = TopActors(page: 1, results: [], totalResults: 1, totalPages: 1)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-        self.collectionView!.register(CategoryCell.nib(), forCellWithReuseIdentifier: reuseIdentifier)
         
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -37,16 +33,28 @@ class CategoriesViewController: UICollectionViewController {
         let layout = UICollectionViewFlowLayout()
         
         collectionView.collectionViewLayout = layout
+
+        // Register cell classes
+        self.collectionView!.register(ActorCell().nib(), forCellWithReuseIdentifier: reuseIdentifier)
+
         // Do any additional setup after loading the view.
-        
-        // Configure variable - Fetch categories
-        ApiConnection().getCategories { (categories) in
-            self.categories = categories
+        // Configure the cell
+        ApiConnection().getTopActors { (topActors) in
+            self.topActors = topActors
             
-            // Reload view after fetch data
             self.collectionView.reloadData()
         }
     }
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using [segue destinationViewController].
+        // Pass the selected object to the new view controller.
+    }
+    */
 
     // MARK: UICollectionViewDataSource
 
@@ -58,36 +66,39 @@ class CategoriesViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return categories.genres.count
+        return topActors.results.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CategoryCell
-    
-        // Configure the cell
-        cell.configure(with: categories.genres[indexPath.row].name)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ActorCell
         
-        cell.contentView.backgroundColor = UIColor.random()
+        let actor = topActors.results[indexPath.row]
+        
+        cell.actorName.text = actor.name
+        
+        if let profilePath = actor.profilePath, let path = URL(string: "https://image.tmdb.org/t/p/w500/\(profilePath)") {
+            cell.actorPicture.downloaded(from: path)
+        } else {
+            print("error with image")
+        }
         
         return cell
     }
 
     // MARK: UICollectionViewDelegate
-    
+
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let controller : MoviesViewController = MoviesViewController()
-        controller.categoryId = categories.genres[indexPath.row].id
+        let controller: ActorMoviesViewController = ActorMoviesViewController()
+        controller.knownFor = topActors.results[indexPath.row].knownFor
         show(controller, sender: self)
-        print("Tapped !")
     }
 }
 
 // MARK: UICollectionViewDelegateFlowLayout
 
-
 // Add a behaviour without doing heritage
 // Here, we're calculating cell size in a way they could expand the most
-extension CategoriesViewController: UICollectionViewDelegateFlowLayout {
+extension ActorsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
         let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
@@ -95,24 +106,5 @@ extension CategoriesViewController: UICollectionViewDelegateFlowLayout {
         let widthPerItem = availableWidth / itemsPerRow
 
         return CGSize(width: widthPerItem, height: widthPerItem)
-    }
-}
-
-// Get a random CGFloat
-extension CGFloat {
-    static func random() -> CGFloat {
-        return CGFloat(arc4random()) / CGFloat(UInt32.max)
-    }
-}
-
-// Randomize colour
-extension UIColor {
-    static func random() -> UIColor {
-        return UIColor(
-           red:   .random(),
-           green: .random(),
-           blue:  .random(),
-           alpha: 1.0
-        )
     }
 }

@@ -29,4 +29,11 @@ class MovieCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        // Removing image from reuse cell to prevent duplication
+        self.poster.image = nil
+    }
+    
 }
