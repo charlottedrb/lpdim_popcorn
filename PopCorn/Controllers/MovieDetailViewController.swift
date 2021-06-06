@@ -38,6 +38,8 @@ class MovieDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .dark
+        
         titleLabel.text = movie.title
         originalTitle.text = movie.originalTitle
         releaseDate.text = movie.releaseDate

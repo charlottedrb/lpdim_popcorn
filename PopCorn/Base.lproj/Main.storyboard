@@ -140,10 +140,10 @@
             </objects>
             <point key="canvasLocation" x="-1359" y="660"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar View Controller-->
         <scene sceneID="cuD-zd-EJH">
             <objects>
-                <tabBarController id="AS2-Bg-YBC" sceneMemberID="viewController">
+                <tabBarController id="AS2-Bg-YBC" customClass="TabBarViewController" customModule="PopCorn" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="5Sr-Tl-Y18"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oMd-oX-il7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>

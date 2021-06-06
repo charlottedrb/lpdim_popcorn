@@ -1,26 +1,20 @@
 //
-//  NavigationViewController.swift
+//  TabBarViewController.swift
 //  PopCorn
 //
-//  Created by Charlotte Der Baghdassarian on 27/05/2021.
+//  Created by Charlotte Der Baghdassarian on 06/06/2021.
 //
 
 import UIKit
 
-class NavigationViewController: UINavigationController {
+class TabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         overrideUserInterfaceStyle = .dark
-//        let nav = self.navigationController?.navigationItem
-//        nav.backButtonTitle = "Return"
-//        nav.title = "Pop Corn"
-        
-
         // Do any additional setup after loading the view.
     }
-
-
+    
 
     /*
     // MARK: - Navigation

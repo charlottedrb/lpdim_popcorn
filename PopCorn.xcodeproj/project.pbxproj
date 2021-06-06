@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		A00BC5FB266A73A900347F2C /* TopMoviesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00BC5FA266A73A900347F2C /* TopMoviesTableViewController.swift */; };
 		A021C2EF265F9BFD00ED90DF /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A021C2ED265F9BFD00ED90DF /* NavigationViewController.swift */; };
-		A021C2F0265F9BFD00ED90DF /* NavigationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A021C2EE265F9BFD00ED90DF /* NavigationViewController.xib */; };
 		A021C2F6265FA0AB00ED90DF /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = A021C2F5265FA0AB00ED90DF /* Categories.swift */; };
 		A021C302265FA43A00ED90DF /* ApiConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A021C301265FA43A00ED90DF /* ApiConnection.swift */; };
 		A038AB3A266ABF06005216E1 /* ActorMoviesViewControllerTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A038AB39266ABF06005216E1 /* ActorMoviesViewControllerTable.swift */; };
@@ -20,6 +19,7 @@
 		A0844311266AAFB400D09493 /* ActorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A084430F266AAFB400D09493 /* ActorCell.xib */; };
 		A0844317266AAFEA00D09493 /* ActorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0844315266AAFEA00D09493 /* ActorsViewController.swift */; };
 		A0844318266AAFEA00D09493 /* ActorsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0844316266AAFEA00D09493 /* ActorsViewController.xib */; };
+		A086E067266D6FAE001AAB46 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A086E066266D6FAE001AAB46 /* TabBarViewController.swift */; };
 		A0908161266AB1F300A54CA2 /* TopActors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0908160266AB1F300A54CA2 /* TopActors.swift */; };
 		A09776982666301400990CA2 /* Videos.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09776972666301400990CA2 /* Videos.swift */; };
 		A09776A52666737E00990CA2 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = A09776A42666737E00990CA2 /* .gitignore */; };
@@ -66,7 +66,6 @@
 /* Begin PBXFileReference section */
 		A00BC5FA266A73A900347F2C /* TopMoviesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopMoviesTableViewController.swift; sourceTree = "<group>"; };
 		A021C2ED265F9BFD00ED90DF /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
-		A021C2EE265F9BFD00ED90DF /* NavigationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavigationViewController.xib; sourceTree = "<group>"; };
 		A021C2F5265FA0AB00ED90DF /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 		A021C301265FA43A00ED90DF /* ApiConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConnection.swift; sourceTree = "<group>"; };
 		A038AB39266ABF06005216E1 /* ActorMoviesViewControllerTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorMoviesViewControllerTable.swift; sourceTree = "<group>"; };
@@ -77,6 +76,7 @@
 		A084430F266AAFB400D09493 /* ActorCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActorCell.xib; sourceTree = "<group>"; };
 		A0844315266AAFEA00D09493 /* ActorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorsViewController.swift; sourceTree = "<group>"; };
 		A0844316266AAFEA00D09493 /* ActorsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActorsViewController.xib; sourceTree = "<group>"; };
+		A086E066266D6FAE001AAB46 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		A0908160266AB1F300A54CA2 /* TopActors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopActors.swift; sourceTree = "<group>"; };
 		A09776972666301400990CA2 /* Videos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Videos.swift; sourceTree = "<group>"; };
 		A09776A42666737E00990CA2 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -145,6 +145,7 @@
 		A0356249265F98AB0065C1D5 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				A086E065266D6F74001AAB46 /* TabBar */,
 				A0AA82702638102600968A52 /* CategoryCell */,
 				A0AA826426380AA200968A52 /* MovieCell */,
 				A084430D266AAF8B00D09493 /* ActorCell */,
@@ -158,7 +159,6 @@
 			isa = PBXGroup;
 			children = (
 				A021C2ED265F9BFD00ED90DF /* NavigationViewController.swift */,
-				A021C2EE265F9BFD00ED90DF /* NavigationViewController.xib */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -204,6 +204,14 @@
 				A084430F266AAFB400D09493 /* ActorCell.xib */,
 			);
 			path = ActorCell;
+			sourceTree = "<group>";
+		};
+		A086E065266D6F74001AAB46 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				A086E066266D6FAE001AAB46 /* TabBarViewController.swift */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 		A0AA82282636D64C00968A52 /* Models */ = {
@@ -404,7 +412,6 @@
 				A0AA82432636E3C500968A52 /* MovieDetailViewController.xib in Resources */,
 				A0AA82572636EF5600968A52 /* MovieCell.xib in Resources */,
 				A0AA82742638104800968A52 /* CategoryCell.xib in Resources */,
-				A021C2F0265F9BFD00ED90DF /* NavigationViewController.xib in Resources */,
 				A0CEBCD42625766500C79384 /* LaunchScreen.storyboard in Resources */,
 				A0844311266AAFB400D09493 /* ActorCell.xib in Resources */,
 				A0CEBCD12625766500C79384 /* Assets.xcassets in Resources */,
@@ -450,6 +457,7 @@
 				A0908161266AB1F300A54CA2 /* TopActors.swift in Sources */,
 				A0E831BE2664C6DF00B2C509 /* Movie.swift in Sources */,
 				A0844310266AAFB400D09493 /* ActorCell.swift in Sources */,
+				A086E067266D6FAE001AAB46 /* TabBarViewController.swift in Sources */,
 				A038AB3A266ABF06005216E1 /* ActorMoviesViewControllerTable.swift in Sources */,
 				A0844317266AAFEA00D09493 /* ActorsViewController.swift in Sources */,
 				A0AA82732638104800968A52 /* CategoryCell.swift in Sources */,
