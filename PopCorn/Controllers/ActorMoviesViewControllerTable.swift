@@ -7,16 +7,21 @@
 
 import UIKit
 
-class ActorMoviesViewController: UITableViewController {
+class ActorMoviesViewControllerTable: UITableViewController {
     
     private var reuseIdentifier: String = MovieCell.reuseId
     
     var knownFor: [Movie] = []
+    var actorName: String? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
-
+        
+        if let name = actorName {
+            self.title = name
+        }
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 

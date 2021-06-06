@@ -88,8 +88,9 @@ class ActorsViewController: UICollectionViewController {
     // MARK: UICollectionViewDelegate
 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let controller: ActorMoviesViewController = ActorMoviesViewController()
+        let controller: ActorMoviesViewControllerTable = ActorMoviesViewControllerTable()
         controller.knownFor = topActors.results[indexPath.row].knownFor
+        controller.actorName = topActors.results[indexPath.row].name
         show(controller, sender: self)
     }
 }

@@ -10,6 +10,7 @@ import UIKit
 class MoviesViewController: UITableViewController {
     
     var categoryId: Int = 0
+    var categoryName: String? = nil
     
     //init
     private var movies: Movies = Movies(page: 1, results: [], totalPages: 1, totalResults: 4)
@@ -29,6 +30,10 @@ class MoviesViewController: UITableViewController {
             self.movies = movies
             self.tableView.reloadData()
         }, categoryId: categoryId)
+        
+        if let name = categoryName {
+            self.title = name
+        }
     }
     
     func setupViews(){

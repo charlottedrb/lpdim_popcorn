@@ -67,7 +67,7 @@ class CategoriesViewController: UICollectionViewController {
         // Configure the cell
         cell.configure(with: categories.genres[indexPath.row].name)
         
-        cell.contentView.backgroundColor = UIColor.random()
+        //cell.contentView.backgroundColor = UIColor.random()
         
         return cell
     }
@@ -77,6 +77,7 @@ class CategoriesViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let controller : MoviesViewController = MoviesViewController()
         controller.categoryId = categories.genres[indexPath.row].id
+        controller.categoryName = categories.genres[indexPath.row].name
         show(controller, sender: self)
         print("Tapped !")
     }

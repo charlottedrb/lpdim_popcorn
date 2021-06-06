@@ -170,7 +170,6 @@ class ApiConnection {
                 let topActors: TopActors = try JSONDecoder().decode(TopActors.self, from: data)
                 // Place it in main thread - Force call in main thread
                 DispatchQueue.main.async{
-                    print(topActors)
                     completion(topActors)
                 }
             } catch {

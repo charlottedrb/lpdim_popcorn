@@ -70,5 +70,11 @@ class TopMoviesTableViewController: UITableViewController {
         
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let controller: MovieDetailViewController = MovieDetailViewController(movie: topMovies.results[indexPath.row])
+        present(controller, animated: true)
+    }
 
 }
